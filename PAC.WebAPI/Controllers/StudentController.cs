@@ -30,9 +30,14 @@ namespace PAC.WebAPI
         }
 
         [HttpGet]
-        public IEnumerable<Student> Get()
+        public IEnumerable<Student> Get([FromQuery] int age = -1)
         {
-            return _studentLogic.GetStudents();
+            if (age < 0)
+            {
+                return _studentLogic.GetStudents();
+            }
+            var students = _studentLogic.GetStudentsByAge(age);
+            return students;
         }
 
         [HttpGet("{id}")]

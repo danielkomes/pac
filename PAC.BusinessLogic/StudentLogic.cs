@@ -24,6 +24,10 @@ public class StudentLogic : IStudentLogic
     {
         return _studentsRepository.GetStudents();
     }
+    public IEnumerable<Student> GetStudentsByAge(int age)
+    {
+        return _studentsRepository.GetStudents().Where(s => s.Age == age);
+    }
 
     public void InsertStudents(Student? student)
     {
