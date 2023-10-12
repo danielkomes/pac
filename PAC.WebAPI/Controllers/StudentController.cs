@@ -14,5 +14,19 @@ namespace PAC.WebAPI
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
+        private readonly IStudentLogic _studentLogic;
+
+        public StudentController(IStudentLogic studentLogic)
+        {
+            this._studentLogic = studentLogic;
+        }
+
+        [AuthorizationFilter]
+        [HttpPost]
+        public IActionResult Post([FromBody] Student value)
+        {
+            _studentLogic.InsertStudents(value);
+            return Ok();
+        }
     }
 }
