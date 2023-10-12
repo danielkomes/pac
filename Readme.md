@@ -1,0 +1,3 @@
+Se registó como Transient ya que no se requiere que guarde ningún dato a lo largo de la request.
+Las otras opciones son Scoped, que mantiene los datos a lo largo de la request, y Singleton, que mantiene los datos a lo largo de toda la ejecución de la aplicación.
+Transient mantiene los datos sólo mientras la ejecución pasa por algún método de esa clase, y cuando sale del método, se borra lo guardado.
