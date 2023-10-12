@@ -9,8 +9,8 @@ namespace PAC.WebAPI.Filters
         {
             var authorizationHeader = context.HttpContext.Request.Headers["Authorization"].ToString();
 
-            Guid token = Guid.Empty;
-            if (string.IsNullOrEmpty(authorizationHeader) || !Guid.TryParse(authorizationHeader, out token))
+            string token = string.Empty;
+            if (string.IsNullOrEmpty(authorizationHeader))
             {
                 context.Result = new ObjectResult(new { Message = "No puedo authorizarme" })
                 {
