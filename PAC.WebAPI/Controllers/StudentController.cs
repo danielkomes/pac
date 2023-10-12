@@ -36,7 +36,7 @@ namespace PAC.WebAPI
         }
 
         [HttpGet("{id}")]
-        public Student Get(int id)
+        public Student GetById(int id)
         {
             return _studentLogic.GetStudentById(id);
         }
